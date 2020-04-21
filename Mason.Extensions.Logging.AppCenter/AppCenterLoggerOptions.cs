@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Microsoft.Extensions.Logging
+﻿namespace Mason.Extensions.Logging.AppCenter
 {
+    using System.Text;
+
+
     public class AppCenterLoggerOptions
     {
         public bool IncludeScopes { get; set; }

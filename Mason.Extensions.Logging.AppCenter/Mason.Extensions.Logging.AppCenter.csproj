@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Authors>Ross Mason</Authors>
     <NeutralLanguage>en-US</NeutralLanguage>
@@ -14,13 +14,14 @@
   <PropertyGroup>
     <PackageTags>Logging,App Center,Microsoft.Extensions.Logging,Generic Host</PackageTags>
     <PackageReleaseNotes>Version 3.0.0</PackageReleaseNotes>
-    <PackageLicenseUrl>https://github.com/jamiewest/AppCenterLogger/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl>https://github.com/RossMMason/AppCenterLogger/blob/master/LICENSE</PackageLicenseUrl>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/jamiewest/AppCenterLogger</RepositoryUrl>
+    <RepositoryUrl>https://github.com/RossMMason/AppCenterLogger</RepositoryUrl>
     <Version>3.0.0</Version>
   </PropertyGroup>
-
+  
+  
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.1.0" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.1.0" />

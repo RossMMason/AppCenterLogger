@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Microsoft.Extensions.Logging.AppCenter
+namespace Mason.Extensions.Logging.AppCenter
 {
     internal class NullScope : IDisposable
     {
