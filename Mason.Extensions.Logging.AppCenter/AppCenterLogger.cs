@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
-
-namespace Microsoft.Extensions.Logging.AppCenter
+﻿namespace Mason.Extensions.Logging.AppCenter
 {
+    using System;
+    using Microsoft.AppCenter.Analytics;
+    using Microsoft.AppCenter.Crashes;
+    using Microsoft.Extensions.Logging;
+
     public class AppCenterLogger : ILogger
     {
-        private readonly string _name;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="AppCenterLogger"/> class.
-        /// </summary>
-        /// <param name="name">The name of the logger.</param>
-        public AppCenterLogger(string name)
+        public AppCenterLogger()
         {
-            _name = name;
         }
 
         internal AppCenterLoggerOptions Options { get; set; }
@@ -41,19 +34,15 @@ namespace Microsoft.Extensions.Logging.AppCenter
                 return;
             }
 
-            var message = formatter(state, exception);
-            var properties = new Dictionary<string, string> { { nameof(message), message } };
-
-            if (!string.IsNullOrEmpty(message) || exception != null)
+            if (exception != null)
             {
-                if (!(logLevel == LogLevel.Error))
-                {
-                    Analytics.TrackEvent(GetLogLevelString(logLevel), properties);
-                }
-                else
-                {
-                    Crashes.TrackError(exception);
-                }
+                Crashes.TrackError(exception);
+            }
+            else
+            {
+                var logLevelString = GetLogLevelString(logLevel);
+                var message = formatter(state, exception);
+                Analytics.TrackEvent($"{logLevelString}: {message}");
             }
         }
 
@@ -77,7 +66,5 @@ namespace Microsoft.Extensions.Logging.AppCenter
                     throw new ArgumentOutOfRangeException(nameof(logLevel));
             }
         }
-
-        
     }
 }

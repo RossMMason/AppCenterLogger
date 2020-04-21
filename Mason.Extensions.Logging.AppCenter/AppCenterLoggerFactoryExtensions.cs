@@ -1,12 +1,12 @@
-﻿using System;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Logging.Configuration;
-using Microsoft.Extensions.Logging.AppCenter;
-using Microsoft.Extensions.Options;
-
-namespace Microsoft.Extensions.Logging
+﻿namespace Mason.Extensions.Logging.AppCenter
 {
+    using System;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.DependencyInjection.Extensions;
+    using Microsoft.Extensions.Logging.Configuration;
+    using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Options;
+
     /// <summary>
     /// Extension methods for the <see cref="ILoggerFactory"/> class.
     /// </summary>

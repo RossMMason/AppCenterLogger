@@ -1,7 +1,8 @@
-﻿using System;
-
-namespace Microsoft.Extensions.Logging.AppCenter
+﻿namespace Mason.Extensions.Logging.AppCenter
 {
+    using System;
+    using Microsoft.Extensions.Logging;
+
     /// <summary>
     /// Scope provider that does nothing.
     /// </summary>

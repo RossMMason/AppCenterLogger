@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Concurrent;
-using Microsoft.Extensions.Options;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
-using AppCenterBase = Microsoft.AppCenter.AppCenter;
-
-namespace Microsoft.Extensions.Logging.AppCenter
+﻿namespace Mason.Extensions.Logging.AppCenter
 {
+    using System;
+    using System.Collections.Concurrent;
+    using Microsoft.Extensions.Options;
+    using Microsoft.AppCenter.Analytics;
+    using Microsoft.AppCenter.Crashes;
+    using AppCenterBase = Microsoft.AppCenter.AppCenter;
+    using Microsoft.Extensions.Logging;
+
     public class AppCenterLoggerProvider : ILoggerProvider, ISupportExternalScope
     {
         private readonly IOptionsMonitor<AppCenterLoggerOptions> _options;
@@ -37,7 +38,7 @@ namespace Microsoft.Extensions.Logging.AppCenter
         /// <inheritdoc />
         public ILogger CreateLogger(string name)
         {
-            return _loggers.GetOrAdd(name, loggerName => new AppCenterLogger(name)
+            return _loggers.GetOrAdd(name, loggerName => new AppCenterLogger()
             {
                 Options = _options.CurrentValue,
                 ScopeProvider = _scopeProvider
